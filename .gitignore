@@ -6,6 +6,7 @@ phpunit.xml
 .php_cs.cache
 .php-cs-fixer.cache
 .env
+.idea/php-test-framework.xml
 
 .DS_Store
 .phpstorm.meta.php

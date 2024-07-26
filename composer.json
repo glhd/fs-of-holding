@@ -1,51 +1,53 @@
 {
-  "name": "glhd/fs-of-holding",
-  "description": "",
-  "keywords": [
-    "laravel"
-  ],
-  "authors": [
-    {
-      "name": "Chris Morrell",
-      "homepage": "http://www.cmorrell.com"
-    }
-  ],
-  "type": "library",
-  "license": "MIT",
-  "require": {
-    "illuminate/support": "^10|^11|dev-master",
-    "ext-json": "*"
-  },
-  "require-dev": {
-    "orchestra/testbench": "^8|^9|10.x-dev|dev-master",
-    "friendsofphp/php-cs-fixer": "^3.34",
-    "mockery/mockery": "^1.6",
-    "phpunit/phpunit": "^10.5"
-  },
-  "autoload": {
-    "psr-4": {
-      "Glhd\\FsOfHolding\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "classmap": [
-      "tests/TestCase.php"
+    "name": "glhd/fs-of-holding",
+    "description": "",
+    "keywords": [
+        "laravel"
     ],
-    "psr-4": {
-      "Glhd\\FsOfHolding\\Tests\\": "tests/"
-    }
-  },
-  "scripts": {
-    "fix-style": "vendor/bin/php-cs-fixer fix",
-    "check-style": "vendor/bin/php-cs-fixer fix --diff --dry-run"
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Glhd\\FsOfHolding\\Support\\FsOfHoldingServiceProvider"
-      ]
-    }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+    "authors": [
+        {
+            "name": "Chris Morrell",
+            "homepage": "http://www.cmorrell.com"
+        }
+    ],
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "illuminate/support": "^10|^11|dev-master",
+        "ext-json": "*",
+        "illuminate/http": "*",
+        "guzzlehttp/guzzle": "^7"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8|^9|10.x-dev|dev-master",
+        "friendsofphp/php-cs-fixer": "^3.34",
+        "mockery/mockery": "^1.6",
+        "phpunit/phpunit": "^10.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Glhd\\FsOfHolding\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php"
+        ],
+        "psr-4": {
+            "Glhd\\FsOfHolding\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "fix-style": "vendor/bin/php-cs-fixer fix",
+        "check-style": "vendor/bin/php-cs-fixer fix --diff --dry-run"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Glhd\\FsOfHolding\\HoldingProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
