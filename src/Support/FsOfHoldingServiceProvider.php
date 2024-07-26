@@ -1,12 +1,12 @@
 <?php
 
-namespace Glhd\LaravelPackageTemplate\Support;
+namespace Glhd\FsOfHolding\Support;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
-class LaravelPackageTemplateServiceProvider extends ServiceProvider
+class FsOfHoldingServiceProvider extends ServiceProvider
 {
 	public function boot()
 	{
@@ -18,16 +18,16 @@ class LaravelPackageTemplateServiceProvider extends ServiceProvider
 	
 	public function register()
 	{
-		$this->mergeConfigFrom($this->packageConfigFile(), 'laravel-package-template');
+		$this->mergeConfigFrom($this->packageConfigFile(), 'fs-of-holding');
 	}
 	
 	protected function bootViews() : self
 	{
-		$this->loadViewsFrom($this->packageViewsDirectory(), 'laravel-package-template');
+		$this->loadViewsFrom($this->packageViewsDirectory(), 'fs-of-holding');
 		
 		$this->publishes([
-			$this->packageViewsDirectory() => $this->app->resourcePath('views/vendor/laravel-package-template'),
-		], 'laravel-package-template-views');
+			$this->packageViewsDirectory() => $this->app->resourcePath('views/vendor/fs-of-holding'),
+		], 'fs-of-holding-views');
 		
 		return $this;
 	}
@@ -35,7 +35,7 @@ class LaravelPackageTemplateServiceProvider extends ServiceProvider
 	protected function bootBladeComponents() : self
 	{
 		if (version_compare($this->app->version(), '8.0.0', '>=')) {
-			Blade::componentNamespace('Glhd\\LaravelPackageTemplate\\Components', 'laravel-package-template');
+			Blade::componentNamespace('Glhd\\FsOfHolding\\Components', 'fs-of-holding');
 		}
 		
 		return $this;
@@ -44,15 +44,15 @@ class LaravelPackageTemplateServiceProvider extends ServiceProvider
 	protected function bootConfig() : self
 	{
 		$this->publishes([
-			$this->packageConfigFile() => $this->app->configPath('laravel-package-template.php'),
-		], 'laravel-package-template-config');
+			$this->packageConfigFile() => $this->app->configPath('fs-of-holding.php'),
+		], 'fs-of-holding-config');
 		
 		return $this;
 	}
 	
 	protected function packageConfigFile(): string
 	{
-		return dirname(__DIR__, 2).DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'laravel-package-template.php';
+		return dirname(__DIR__, 2).DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'fs-of-holding.php';
 	}
 	
 	protected function packageTranslationsDirectory(): string
